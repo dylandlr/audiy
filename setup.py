@@ -1,0 +1,33 @@
+from setuptools import setup, find_packages
+
+setup(
+    name='audiy',
+    version='0.1',
+    packages=find_packages(),
+    include_package_data=True,
+    install_requires=[
+        'aiohttp==3.9.3',
+        'aiosignal==1.3.1',
+        'attrs==23.2.0',
+        'blinker==1.7.0',
+        'certifi==2024.2.2',
+        'charset-normalizer==3.3.2',
+        'click==8.1.7',
+        'colorama==0.4.6',
+        'Flask==3.0.3',
+        'frozenlist==1.4.1',
+        'idna==3.6',
+        'itsdangerous==2.1.2',
+        'Jinja2==3.1.3',
+        'MarkupSafe==2.1.5',
+        'multidict==6.0.5',
+        'openai==0.28.0',
+        'requests==2.31.0',
+        'setuptools==69.2.0',
+        'tqdm==4.66.2',
+        'urllib3==2.2.1',
+        'Werkzeug==3.0.2',
+        'wheel==0.43.0',
+        'yarl==1.9.4'
+    ],
+)

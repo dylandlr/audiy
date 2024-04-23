@@ -21,10 +21,9 @@ Au.diy is a DIY auditing application designed to empower individuals and small b
 
 ## Tech Stack
 
-- Frontend: React
-- Backend: Node.js with Express
-- Database: PostgreSQL
-- ORM: Sequelize
+- Frontend: HTML 5, Tailwindcss
+- Backend: Python, JS
+- Database: SQLite
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
@@ -32,35 +31,10 @@ These instructions will get you a copy of the project up and running on your loc
 **Prerequisites**:
 What things you need to install the software and how to install them:
 
-- Node.js, 
-- npm (comes with Node.js), 
-- PostgreSQL, 
+- Python, 
+- Flask, 
+- SQLAlchemy, 
 - Git (optional, if cloning the repo)
 
-Installing
-A step by step series of examples that tell you how to get a development environment running.
-
-1. Clone the repository (optional):
-```bash
-git clone https://github.com/dylandlr/audiy-app.git
-cd audiy-app
-```
-2. Set up the Backend: 
-```bash
-cd audiy-backend
-npm install
-npm start
-```
-
-3. Set up the Frontend:
-```bash
-cd audiy-frontend
-npm install
-npm start
-```
-
-4. Database Setup
-```bash
-cd audiy-backend
-npm test
+end
 ```
