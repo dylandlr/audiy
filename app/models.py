@@ -4,7 +4,7 @@
 # The User model also includes a method to check if the user is an authenticated user.
 #
 from werkzeug.security import generate_password_hash, check_password_hash
-from sqlalch import db
+from alchemy import db
 from flask_login import UserMixin
 
 def generate_password_hash(password):

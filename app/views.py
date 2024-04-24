@@ -2,12 +2,20 @@
 
 from flask import Flask, Blueprint, render_template, request, redirect, url_for, flash
 # from app import auth
-from audit_data import audit_features
+# from audit_data import audit_features
 from flask_login import current_user, login_user, logout_user
 from models import User
 from config import Config
 from configparser import ConfigParser
-from sqlalch import db, migrate, login
+from __init__ import db, migrate, login
+from flask import send_file
+import sqlite_db
+import sqlite3
+from flask import jsonify
+from audit_data import audit_features
+from sqlite_db import update_compliance, get_compliance
+from flask import jsonify
+
 
 # Define the main Blueprint for the application
 # Blueprint is a way to organize a group of related views and other code and is separate from the main application instance.
@@ -77,13 +85,42 @@ def contact():
 
 @main.route('/audit-report')
 def audit_report():
-    compliant_count = sum(1 for f in audit_features if f['compliance'])
-    total_features = len(audit_features)
-    return render_template('report.html', compliant_count=compliant_count, total_features=total_features)
+    return render_template('audit-report.html')
 
 @main.route('/dashboard')
 def dashboard():
     return render_template('dashboard.html')
+
+@main.route('/download_report')
+def download_report():
+    # Generate the report
+    report = sqlite_db.generate_report()  # replace with your function to generate report
+
+    # Write the report to a text file
+    with open('report.txt', 'w') as f:
+        f.write(report)
+
+    # Return the text file for download
+    return send_file('report.txt', as_attachment=True, attachment_filename='report.txt')
+
+@main.route('/update_compliance', methods=['POST'])
+def update_compliance_route():
+    feature_id = request.json.get('feature_id')
+    compliance = request.json.get('compliance')
+
+    if feature_id is None or compliance is None:
+        return {"error": "Missing feature_id or compliance"}, 400
+
+    update_compliance(feature_id, compliance)
+
+    return {"status": "success"}, 200
+
+@main.route('/compliance/<int:feature_id>', methods=['GET'])
+def get_compliance_route(feature_id):
+    compliance = get_compliance(feature_id)
+    if compliance is None:
+        return {"error": "Feature not found"}, 404
+    return jsonify({"compliance": compliance})
 
 if __name__ == '__main__':
     main.run(debug=True)

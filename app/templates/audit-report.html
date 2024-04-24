@@ -32,13 +32,13 @@
     <div class="spark-section-3 spark-primary-color-background">
       <div data-collapse="medium" data-animation="default" data-duration="400" data-w-id="9d92baf6-0952-9be0-4ac6-32155b9b9c67" data-easing="ease" data-easing2="ease" role="banner" class="spark-square-menu-with-links-2 w-nav">
         <div class="spark-square-menu-inner-2">
-          <a href="#" class="spark-brand-logo-2 w-nav-brand"><img src="../static/images/Audiy-423.png" loading="lazy" alt="" height="Auto" class="image-4">
+          <a href="{{ url_for('main.index') }}" class="spark-brand-logo-2 w-nav-brand"><img src="../static/images/Audiy-423.png" loading="lazy" alt="" height="Auto" class="image-4">
             <div class="text-block"><strong>au</strong><span class="text-span-3"><strong class="bold-text">.</strong></span><span class="text-span"><strong>diy</strong></span></div>
           </a>
           <nav role="navigation" class="spark-nav-menu-2 w-nav-menu">
-            <a href="#" class="spark-nav-link-2 w-nav-link">About</a>
-            <a href="#" class="spark-nav-link-2 w-nav-link">Contact</a>
-            <a href="#" class="spark-nav-link-2 w-nav-link">Login</a>
+            <a href="{{ url_for('main.about') }}" class="spark-nav-link-2 w-nav-link">About</a>
+            <a href="{{ url_for('main.contact') }}" class="spark-nav-link-2 w-nav-link">Contact</a>
+            <a href="{{ url_for('main.login') }}" class="spark-nav-link-2 w-nav-link">Login</a>
             <a href="#" class="spark-nav-link-2 spark-button w-nav-link">Request a Demo</a>
           </nav>
           <div data-ix="simple-menu-button" class="spark-simple-menu-button-2 w-nav-button">
@@ -56,9 +56,24 @@
         <div class="spark-900-width">
           
 
-
-
+          {% block content %}
             
+            <!-- Add your audit report content here to print for the user -->
+             
+            
+            <div class="spark-flexed-column">
+              <div class="spark-flexed-row">
+                <div class="spark-flex left">
+                  <h2 class="spark-heading-2">Audit Report</h2>
+                  
+                </div>
+                <div class="spark-flex right">
+                  <a href="#" class="spark-button-2 w-button">Download</a>
+                  <!-- now allow them to download the report -->
+                  
+                </div>
+          {% endblock %}
+
         </div>
       </div>
     </div>

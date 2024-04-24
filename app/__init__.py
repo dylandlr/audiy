@@ -4,14 +4,14 @@ from models import User
 from config import Config
 from configparser import ConfigParser
 # from sqlalch import db, migrate, login
+from alchemy import db, migrate, login
+# from flask_sqlalchemy import SQLAlchemy
+# from flask_migrate import Migrate
+# from flask_login import LoginManager
 
-from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
-from flask_login import LoginManager
-
-db = SQLAlchemy()
-migrate = Migrate()
-login = LoginManager()
+# db = SQLAlchemy()
+# migrate = Migrate()
+# login = LoginManager()
 
 def load_user(user_id):
     return User.query.get(int(user_id))
